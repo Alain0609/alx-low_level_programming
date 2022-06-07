@@ -1,22 +1,21 @@
-#include "main.h"
-/**
- * main- Entry
- *
- * Return: 0
- */
+#include <stdio.h>
 
+/**
+ * main - Prints "_putchar" followed by a new line.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	char word[9] = "_putchar";
+        putchar('_');
+        putchar('p');
+        putchar('u');
+        putchar('t');
+        putchar('c');
+        putchar('h');
+        putchar('a');
+        putchar('r');
+        putchar('\n');
 
-	int i = 0;
-
-
-	while (i < 8)
-	{
-		_putchar(word[i]);
-		i++;
-	}
-	_putchar('\n');
-	return (0);
+        return (0);
 }
