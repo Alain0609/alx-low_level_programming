@@ -1,50 +1,34 @@
 #include "main.h"
-#include <stddef.h>
-
-int in_accept(char c, char *accept);
-
 /**
- * _strpbrk - searches a string for any of a set of bytes
- * @s: string to be checked
- * @accept: string containing the only accepted bytes
+ * _strstr - a function that locates a substring
+ * @haystack: locate a substring
+ * @needle: substring to locate
  *
- * Return: a pointer to the byte in s that matches one of the bytes in accept,
- * or NULL if no such byte is found
+ * Return: pointer to the beginning of the located substring,
+ * or NULL, if substring is not found
  */
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i;
-	char *first = NULL;
+	char *h = haystack;
+	char *n = needle;
 
-	for (i = 0;  s[i] != '\0'; i++)
+	while (*h)
 	{
-		if (in_accept(s[i], accept))
+		n = needle;
+		h = haystack;
+		while (*n)
 		{
-			first = (s + i);
-			break;
+			if (*h == *n)
+			{
+				n++;
+				h++;
+			}
+			else
+				break;
 		}
+		if (*n == '\0')
+			return (haystack);
+		haystack++;
 	}
-
-	return (first);
-}
-
-
-/**
- * in_accept - checks if agiven character is in the string accept
- * @c: character to be checked
- * @accept: string containingthe only accepted characters
- *
- * Return: 1 if c is in accept. Otherwise 0
- */
-int in_accept(char c, char *accept)
-{
-	int i;
-
-	for (i = 0; accept[i] != '\0'; i++)
-	{
-		if (c == accept[i])
-			return (1);
-	}
-
 	return (0);
 }
